@@ -24,16 +24,55 @@ body {
   align-items: center;
   border-radius: 50%;
   border: 2px solid #bbb;
+  background-color: #fff;
   display: flex;
   height: 25px;
   justify-content: center;
+  transition: 0.4s ease;
   width: 25px;
+  z-index: 1;
 }
 
-.circles-container {
+.active.circle {
+  border: 2px solid blue;
+}
+
+.progress-container {
  display: flex; 
  flex-direction: row;
- gap: 20px;
+ justify-content: space-between;
+ position: relative;
+ z-index: 1;
+ max-width: 100%;
+ width: 350px;
+}
+
+.progress-container::before {
+  background-color: #e0e0e0;
+  content: "";
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left:0;
+  width: 100%;
+  z-index: -1;
+
+  /* The combination of top: 50% and transform: translateY(-50%) is a common technique used to vertically center an element within its parent, and it's especially useful when you don't know the height of the element you're centering. Here's why both properties are necessary and how they work together:
+top: 50%; - This property moves the top edge of the element to the middle of its parent. However, this alone doesn't center the element vertically because the element's top edge is at the center, not the element itself. */
+/* 2. transform: translateY(-50%); - This property shifts the element up by half of its own height. By doing this, the center of the element aligns with the center of the parent. */
+}
+
+.progress {
+  background-color: blue;
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  transition:0.3s ease ;
+  transform: translateY(-50%);
+  left:0;
+  width: 0%;
+  z-index: -1;
 }
 
 .buttons-container {
@@ -42,6 +81,12 @@ body {
   justify-content: center;
 }
 
-.active.circle {
-  border: 2px solid blue;
+.btn {
+  cursor: pointer;
 }
+
+.btn:disabled {
+  cursor: not-allowed;
+  transform: scale(0.9);
+}
+

@@ -1,11 +1,13 @@
 import "./style.css";
 
 const circles = document.querySelectorAll(".circle")
-let currentStep = 1
+const progressBar=document.getElementById("progress")
 
-// Define button elements outside the function to avoid repeated DOM queries
 const prevButton = document.getElementById('prevButton') as HTMLButtonElement;
 const nextButton = document.getElementById('nextButton') as HTMLButtonElement;
+
+let currentStep = 1
+
 
 // Function to update button states based on currentStep
 function updateButtonStates() {
@@ -17,25 +19,19 @@ function updateButtonStates() {
 function updateActiveCircles() {
     // Remove active class from all circles
     circles.forEach(circle => circle.classList.remove("active"));
-
     // Add active class for circles up to currentStep
     for (let i = 0; i < currentStep; i++) {
         circles[i].classList.add("active");
+        if (progressBar) {
+            // Set the width of the progressBar based on currentStep
+            progressBar.style.width = `${(currentStep - 1) * 33.33}%`;
+        }
     }
 
     // Update button states
     updateButtonStates();
 }
 
-// Call this function whenever currentStep changes
-switch (currentStep) {
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-        updateActiveCircles();
-        break;
-}
 
 function updateStep(e: MouseEvent) {
     // Check if the target is the next button and increment currentStep
@@ -50,6 +46,5 @@ function updateStep(e: MouseEvent) {
     updateActiveCircles();
 }
 
-
-document.getElementById('prevButton')?.addEventListener('click', updateStep);
-document.getElementById('nextButton')?.addEventListener('click', updateStep);
+prevButton.addEventListener('click', updateStep);
+nextButton.addEventListener('click', updateStep);
