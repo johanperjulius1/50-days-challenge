@@ -1,0 +1,75 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", "san-serif";
+  height: 100vh;
+  justify-content: center;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  row-gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.search {
+  min-width: 0;
+  flex: 0 1 20px;
+  padding: 5px;
+  margin: 5px;
+  transition: flex-basis 0.3s ease;
+}
+.search.active {
+  flex: 0 1 200px;
+}
+ */
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 20px;
+  width: 200px;
+  height: 200px;
+}
+
+.item {
+  flex: 0 1 calc(50% - 10px);
+  box-sizing: border-box;
+}
+
+.one {
+  background: red;
+}
+
+.two {
+  background: blue;
+}
+
+.three {
+  background: yellow;
+  flex-grow: 2;
+}
+
+.four {
+  background: green;
+}
