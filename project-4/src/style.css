@@ -23,13 +23,44 @@ body {
 
 .search {
   min-width: 0;
-  flex: 0 1 20px;
+  flex: 0 1 30px;
+  /* width: 30px; */
   padding: 5px;
   margin: 5px;
   transition: flex-basis 0.3s ease;
+  position: relative;
 }
 .search.active {
   flex: 0 1 200px;
+  /* width: 200px; */
+}
+
+.input-container {
+  flex: 0 1 30px;
+  /* width: 30px; */
+  padding: 5px;
+  margin: 5px;
+  transition: flex-basis 0.3s ease;
+  position: relative;
+  background-color: blue;
+
+}
+
+.input-container.active {
+  background-color: blue;
+  position: relative;
+  flex: 0 1 200px;
+  /* width: 200px; */
+
+}
+
+.input-container::after {
+  color: black;
+  content: "X";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 14px;
 }
 
 /* body {
